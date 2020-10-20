@@ -21,27 +21,27 @@ export class FormUserDetails extends Component {
             fullWidth
             maxWidth='sm'
           >
-            <AppBar title="Enter User Details" />
+            <AppBar title="Enter Project Details" />
             <TextField
-              placeholder="Enter Your First Name"
-              label="First Name"
-              onChange={handleChange('firstName')}
-              defaultValue={values.firstName}
+              placeholder="Enter Customer Name"
+              label="Customer Name"
+              onChange={handleChange('customer_name')}
+              defaultValue={values.customer_name}
               margin="normal"
               fullWidth
             />
             <br />
             <TextField
-              placeholder="Enter Your Last Name"
-              label="Last Name"
-              onChange={handleChange('lastName')}
-              defaultValue={values.lastName}
+              placeholder="Enter Shipping Address"
+              label="Shipping Address"
+              onChange={handleChange('shipping_address')}
+              defaultValue={values.shipping_address}
               margin="normal"
               fullWidth
             />
             <br />
             <TextField
-              placeholder="Enter Your Email"
+              placeholder="Enter Customer Email"
               label="Email"
               onChange={handleChange('email')}
               defaultValue={values.email}

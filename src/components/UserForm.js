@@ -7,12 +7,15 @@ import Success from './Success';
 export class UserForm extends Component {
   state = {
     step: 1,
-    firstName: '',
-    lastName: '',
+    customer_name: '',
+    shipping_address: '',
     email: '',
-    occupation: '',
-    city: '',
-    bio: ''
+    item_number: '',
+    vendor: '',
+    quantity: '',
+    description: '',
+    unit_cost: '',
+    unit_sales_price: '',
   };
 
   // Proceed to next step
@@ -38,8 +41,8 @@ export class UserForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { firstName, lastName, email, occupation, city, bio } = this.state;
-    const values = { firstName, lastName, email, occupation, city, bio };
+    const { customer_name, shipping_address, email, item_number, vendor, quantity, description, unit_cost, unit_sales_price } = this.state;
+    const values = { customer_name, shipping_address, email, item_number, vendor, quantity, description, unit_cost, unit_sales_price };
 
     switch (step) {
       case 1:

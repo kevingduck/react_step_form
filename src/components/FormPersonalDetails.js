@@ -26,35 +26,61 @@ export class FormPersonalDetails extends Component {
             fullWidth
             maxWidth='sm'
           >
-            <AppBar title="Enter Personal Details" />
+            <AppBar title="Add Items to Project" />
             <TextField
-              placeholder="Enter Your Occupation"
-              label="Occupation"
-              onChange={handleChange('occupation')}
-              defaultValue={values.occupation}
+              placeholder="Enter Item Number"
+              label="Item Number"
+              onChange={handleChange('item_number')}
+              defaultValue={values.item_number}
               margin="normal"
               fullWidth
             />
             <br />
             <TextField
-              placeholder="Enter Your City"
-              label="City"
-              onChange={handleChange('city')}
-              defaultValue={values.city}
+              placeholder="Enter Vendor"
+              label="Vendor"
+              onChange={handleChange('vendor')}
+              defaultValue={values.vendor}
               margin="normal"
               fullWidth
             />
             <br />
             <TextField
-              placeholder="Enter Your Bio"
-              label="Bio"
-              onChange={handleChange('bio')}
-              defaultValue={values.bio}
+              placeholder="Enter Quantity"
+              label="Quantity"
+              onChange={handleChange('quantity')}
+              defaultValue={values.quantity}
               margin="normal"
               fullWidth
             />
             <br />
-
+            <TextField
+              placeholder="Enter Description"
+              label="Description"
+              onChange={handleChange('description')}
+              defaultValue={values.description}
+              margin="normal"
+              fullWidth
+            />
+            <br />
+            <TextField
+              placeholder="Enter Unit Cost"
+              label="Unit Cost"
+              onChange={handleChange('unit_cost')}
+              defaultValue={values.unit_cost}
+              margin="normal"
+              fullWidth
+            />
+            <br />
+            <TextField
+              placeholder="Enter Unit Sales Price"
+              label="Unit Sales Price"
+              onChange={handleChange('unit_sales_price')}
+              defaultValue={values.unit_sales_price}
+              margin="normal"
+              fullWidth
+            />
+            <br />
             <Button
               color="secondary"
               variant="contained"

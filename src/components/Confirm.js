@@ -19,7 +19,7 @@ export class Confirm extends Component {
 
   render() {
     const {
-      values: { firstName, lastName, email, occupation, city, bio }
+      values: { customer_name, shipping_address, email, item_number, vendor, quantity, description, unit_cost, unit_sales_price }
     } = this.props;
     return (
       <MuiThemeProvider>
@@ -32,22 +32,31 @@ export class Confirm extends Component {
             <AppBar title="Confirm User Data" />
             <List>
               <ListItem>
-                <ListItemText primary="First Name" secondary={firstName} />
+                <ListItemText primary="Customer" secondary={customer_name} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Last Name" secondary={lastName} />
+                <ListItemText primary="Shipping Address" secondary={shipping_address} />
               </ListItem>
               <ListItem>
                 <ListItemText primary="Email" secondary={email} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Occupation" secondary={occupation} />
+                <ListItemText primary="Item Number" secondary={item_number} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="City" secondary={city} />
+                <ListItemText primary="Vendor" secondary={vendor} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Bio" secondary={bio} />
+                <ListItemText primary="Quantity" secondary={quantity} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Description" secondary={description} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Unit Cost" secondary={unit_cost} />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Unit Sales Price" secondary={unit_sales_price} />
               </ListItem>
             </List>
             <br />
