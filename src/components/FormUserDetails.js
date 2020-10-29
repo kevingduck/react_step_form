@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -21,7 +20,7 @@ export class FormUserDetails extends Component {
             fullWidth
             maxWidth='sm'
           >
-            <AppBar title="Enter Project Details" />
+            <h1>Create New Project</h1>
             <TextField
               placeholder="Enter Customer Name"
               label="Customer Name"
@@ -45,6 +44,14 @@ export class FormUserDetails extends Component {
               label="Email"
               onChange={handleChange('email')}
               defaultValue={values.email}
+              margin="normal"
+              fullWidth
+            />
+            <TextField
+              placeholder="Enter Due Date"
+              label="Due Date"
+              onChange={handleChange('due_date')}
+              defaultValue={values.due_date}
               margin="normal"
               fullWidth
             />

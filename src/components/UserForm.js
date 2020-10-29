@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import FormUserDetails from './FormUserDetails';
-import FormPersonalDetails from './FormPersonalDetails';
 import Confirm from './Confirm';
 import Success from './Success';
+
+const creation_date = new Date();
 
 export class UserForm extends Component {
   state = {
@@ -10,19 +11,22 @@ export class UserForm extends Component {
     customer_name: '',
     shipping_address: '',
     email: '',
-    item_number: '',
-    vendor: '',
-    quantity: '',
-    description: '',
-    unit_cost: '',
-    unit_sales_price: '',
+    creation_date: creation_date.toDateString(),
+    project_code: ''
+    // item_number: '',
+    // vendor: '',
+    // quantity: '',
+    // description: '',
+    // unit_cost: '',
+    // unit_sales_price: '',
   };
 
   // Proceed to next step
   nextStep = () => {
-    const { step } = this.state;
+    const { step, project_code, customer_name } = this.state;
     this.setState({
-      step: step + 1
+      step: step + 1,
+      project_code: customer_name.substring(0,4).toUpperCase() + "-test123" 
     });
   };
 
@@ -41,8 +45,36 @@ export class UserForm extends Component {
 
   render() {
     const { step } = this.state;
-    const { customer_name, shipping_address, email, item_number, vendor, quantity, description, unit_cost, unit_sales_price } = this.state;
-    const values = { customer_name, shipping_address, email, item_number, vendor, quantity, description, unit_cost, unit_sales_price };
+    
+    const { 
+      customer_name, 
+      shipping_address, 
+      email,
+      due_date,
+      creation_date,
+      project_code
+      // item_number, 
+      // vendor, 
+      // quantity, 
+      // description, 
+      // unit_cost,
+      // unit_sales_price 
+    } = this.state;
+
+    const values = { 
+      customer_name, 
+      shipping_address, 
+      email,
+      due_date,
+      creation_date,
+      project_code
+      // item_number, 
+      // vendor, 
+      // quantity, 
+      // description, 
+      // unit_cost, 
+      // unit_sales_price 
+    };
 
     switch (step) {
       case 1:
@@ -55,22 +87,13 @@ export class UserForm extends Component {
         );
       case 2:
         return (
-          <FormPersonalDetails
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            handleChange={this.handleChange}
-            values={values}
-          />
-        );
-      case 3:
-        return (
           <Confirm
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
           />
         );
-      case 4:
+      case 3:
         return <Success />;
       default:
         (console.log('This is a multi-step form built with React.'))

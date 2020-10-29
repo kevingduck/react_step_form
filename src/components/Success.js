@@ -5,18 +5,8 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 
 export class Success extends Component {
   continue = e => {
-    debugger
     e.preventDefault();
-    const { data } = this.props;
-
-    if (window.confirm("Ready to save?" + data)) {
-      fetch('./.netlify/functions/projects', {
-        method: 'POST',
-        body: data,
-      });
-      console.log('created' + data);
-    };
-    // e.target.reset();    
+    // PROCESS FORM //
     this.props.nextStep();
   };
 

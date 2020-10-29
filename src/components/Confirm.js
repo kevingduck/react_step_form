@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import { List, ListItem, ListItemText } from '@material-ui/core/';
 import Button from '@material-ui/core/Button';
@@ -8,18 +7,16 @@ import Button from '@material-ui/core/Button';
 export class Confirm extends Component {
   continue = e => {
     e.preventDefault();
-    // const { data } = this.props;
     const { values } = this.props;
 
-    if (window.confirm("Ready to save?" + JSON.stringify(values))) {
+    if (window.confirm("Create New Project?" + JSON.stringify(values))) {
       fetch('./.netlify/functions/project', {
         method: 'POST',
         body: JSON.stringify(values),
       });
       console.log('created' + values);
     };
-    // e.target.reset();
-
+  
     this.props.nextStep();
   };
 
@@ -30,8 +27,16 @@ export class Confirm extends Component {
 
   render() {
     const {
-      values: { customer_name, shipping_address, email, item_number, vendor, quantity, description, unit_cost, unit_sales_price }
+      values: { 
+        customer_name, 
+        shipping_address, 
+        email, 
+        due_date,
+        creation_date,
+        project_code
+      }
     } = this.props;
+    
     return (
       <MuiThemeProvider>
         <>
@@ -40,7 +45,6 @@ export class Confirm extends Component {
             fullWidth
             maxWidth='sm'
           >
-            <AppBar title="Confirm User Data" />
             <List>
               <ListItem>
                 <ListItemText primary="Customer" secondary={customer_name} />
@@ -52,22 +56,13 @@ export class Confirm extends Component {
                 <ListItemText primary="Email" secondary={email} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Item Number" secondary={item_number} />
+                <ListItemText primary="Due Date" secondary={due_date} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Vendor" secondary={vendor} />
+                <ListItemText primary="Creation Date" secondary={creation_date} />
               </ListItem>
               <ListItem>
-                <ListItemText primary="Quantity" secondary={quantity} />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Description" secondary={description} />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Unit Cost" secondary={unit_cost} />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Unit Sales Price" secondary={unit_sales_price} />
+                <ListItemText primary="Project Code" secondary={project_code} />
               </ListItem>
             </List>
             <br />
