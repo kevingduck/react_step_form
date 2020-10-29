@@ -23,7 +23,7 @@ export class UserForm extends Component {
 
   // Proceed to next step
   nextStep = () => {
-    const { step, project_code, customer_name } = this.state;
+    const { step, customer_name } = this.state;
     this.setState({
       step: step + 1,
       project_code: customer_name.substring(0,4).toUpperCase() + "-test123" 
