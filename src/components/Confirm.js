@@ -8,7 +8,18 @@ import Button from '@material-ui/core/Button';
 export class Confirm extends Component {
   continue = e => {
     e.preventDefault();
-    // PROCESS FORM //
+    // const { data } = this.props;
+    const { values } = this.props;
+
+    if (window.confirm("Ready to save?" + JSON.stringify(values))) {
+      fetch('./.netlify/functions/project', {
+        method: 'POST',
+        body: JSON.stringify(values),
+      });
+      console.log('created' + values);
+    };
+    // e.target.reset();
+
     this.props.nextStep();
   };
 
