@@ -11,8 +11,33 @@ export class ProjectsTable extends Component {
                             <th>test</th>
                             <th>test</th>
                             <th>test</th>
+                            <th>test</th>
+                            <th>test</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                        </tr>
+                        <tr>
+                        <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                        </tr>
+                        <tr>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                        </tr>
+                    </tbody>
                 </Table>
 
             </div>
