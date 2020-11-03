@@ -33,7 +33,7 @@ export class ProjectsTable extends Component {
                     <ul>
                         { items.map(item => (
                             <li key={item.id}>
-                                {item.data.customer_name} | {item.data.project_code} | Due {item.data.due_date}
+                               Customer: {item.data.customer_name} | Project {item.data.project_code} | Created On {item.data.creation_date} | Due By {item.data.due_date} | Email: {item.data.email}
                             </li>
                             )
                         )}
