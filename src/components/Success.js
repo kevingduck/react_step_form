@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import AppBar from '@material-ui/core/AppBar';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
@@ -16,17 +17,26 @@ export class Success extends Component {
   };
 
   render() {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = () => {
+      setOpen(false);
+    };
+
     return (
       <MuiThemeProvider>
         <>
           <Dialog
-            open
+            open={open}
             fullWidth
             maxWidth='sm'
           >
             <AppBar title="Success" />
-            <h1>Thank You For Your Submission</h1>
-            <p>You will get an email with further instructions.</p>
+            <h1>Project Created</h1>
+            <p>Select Project from table to add Items</p>
+            <Button onClick={handleClose} color="primary">
+              Cancel
+          </Button>
           </Dialog>
         </>
       </MuiThemeProvider>

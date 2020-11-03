@@ -1,47 +1,46 @@
 import React, { Component } from 'react'
-import Table from 'react-bootstrap/Table';
+// import Table from 'react-bootstrap/Table';
 
 export class ProjectsTable extends Component {
-    render() {
-        return (
-            <div>
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>test</th>
-                            <th>test</th>
-                            <th>test</th>
-                            <th>test</th>
-                            <th>test</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                        </tr>
-                        <tr>
-                        <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                        </tr>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                        </tr>
-                    </tbody>
-                </Table>
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: [],
+            isLoaded: false,
+        }
+    }
 
-            </div>
-        )
+    componentDidMount() {
+        fetch('https://converged.netlify.app/.netlify/functions/project')
+        .then(res => res.json())
+        .then(json => {
+            this.setState({
+                isLoaded: true,
+                items: json,
+            })
+        });
+    }
+
+    render() {
+        var { isLoaded, items } = this.state;
+
+        if (!isLoaded) {
+            return <div>Loading ... </div>
+        } 
+        else {
+            return (
+                <div>
+                    <ul>
+                        { items.map(item => (
+                            <li key={item.id}>
+                                {item.customer_name}
+                            </li>
+                            )
+                        )}
+                    </ul>
+                </div>
+            )
+        }
     }
 }
 
