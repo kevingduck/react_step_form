@@ -33,7 +33,7 @@ export class ProjectsTable extends Component {
                     <ul>
                         { items.map(item => (
                             <li key={item.id}>
-                                {item.customer_name}
+                                {item.data.data.customer_name}
                             </li>
                             )
                         )}
