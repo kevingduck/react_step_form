@@ -40,20 +40,27 @@ export class ProjectsTable extends Component {
                                 <th>Email</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                            </tr>
+                        <tbody> 
+                            { items.map(item => (
+                                <tr key={item.id}>
+                                    <td>{item.data.customer_name}</td>
+                                    <td>{item.data.project_code}</td>
+                                    <td>{item.data.creation_date}</td>
+                                    <td>{item.data.due_date}</td>
+                                    <td>{item.data.email}</td>
+                                </tr>
+                                )
+                            )}
                         </tbody>
                     </Table>
-                    <ul>
+                    {/* <ul>
                         { items.map(item => (
                             <li key={item.id}>
                                Customer: {item.data.customer_name} <br /> Project {item.data.project_code} | Created On {item.data.creation_date} | Due By {item.data.due_date} | Email: {item.data.email} | ID: <a href={'./.netlify/functions/project/' + item.id}>Edit</a>
                             </li>
                             )
                         )}
-                    </ul>
+                    </ul> */}
                 </div>
             )
         }
