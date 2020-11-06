@@ -40,8 +40,8 @@ export class ProjectsTable extends Component {
         } 
         else {
             return (
-                <div>
-                    <Table striped bordered hover>
+                <div style={{padding:'20px'}}>
+                    <Table responsive striped bordered hover>
                         <thead>
                             <tr>
                                 <th>Customer</th>
