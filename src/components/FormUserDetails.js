@@ -57,8 +57,11 @@ export class FormUserDetails extends Component {
               fullWidth
             />
             <TextField
-              placeholder="Enter Due Date"
               label="Due Date"
+              type="date"
+              InputLabelProps={{
+                shrink: true,
+              }}
               onChange={handleChange('due_date')}
               defaultValue={values.due_date}
               margin="normal"
