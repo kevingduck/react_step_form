@@ -10,13 +10,22 @@ export class FormUserDetails extends Component {
     this.props.nextStep();
   };
 
+  close = e => {
+    e.preventDefault();
+    this.setState({show:false});
+  };
+
+  state = {
+    show: true,
+  };
+  
   render() {
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider>
         <>
           <Dialog
-            open
+            open = {this.state.show}
             fullWidth
             maxWidth='sm'
           >
@@ -61,6 +70,11 @@ export class FormUserDetails extends Component {
               variant="contained"
               onClick={this.continue}
             >Continue</Button>
+            <Button
+              color="secondary"
+              variant="contained"
+              onClick={this.close}
+            >Close</Button>
           </Dialog>
         </>
       </MuiThemeProvider>
