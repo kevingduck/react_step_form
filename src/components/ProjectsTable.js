@@ -20,6 +20,8 @@ export class ProjectsTable extends Component {
             })
         });
     }
+    
+    //TODO: Add delete and edit function
 
     render() {
         var { isLoaded, items } = this.state;
@@ -38,6 +40,8 @@ export class ProjectsTable extends Component {
                                 <th>Created</th>
                                 <th>Due</th>
                                 <th>Email</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody> 
@@ -48,6 +52,8 @@ export class ProjectsTable extends Component {
                                     <td>{item.data.creation_date}</td>
                                     <td>{item.data.due_date}</td>
                                     <td>{item.data.email}</td>
+                                    <td><a href="./.netlify/functions/project/">Edit</a></td>
+                                    <td><a href="./.netlify/functions/project/">Delete</a></td>
                                 </tr>
                                 )
                             )}
