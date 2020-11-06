@@ -49,7 +49,7 @@ export class ProjectsTable extends Component {
                     <ul>
                         { items.map(item => (
                             <li key={item.id}>
-                               Customer: {item.data.customer_name} <br /> Project {item.data.project_code} | Created On {item.data.creation_date} | Due By {item.data.due_date} | Email: {item.data.email} | ID: <a href={'./netlify/functions/project/'+item.id}>Edit</a>{item.id} 
+                               Customer: {item.data.customer_name} <br /> Project {item.data.project_code} | Created On {item.data.creation_date} | Due By {item.data.due_date} | Email: {item.data.email} | ID: <a href={'./netlify/functions/project/'+item.ref}>Edit</a>{item.ref} 
                             </li>
                             )
                         )}
