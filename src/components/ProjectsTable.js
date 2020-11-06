@@ -34,8 +34,7 @@ export class ProjectsTable extends Component {
         
         var url = "./.netlify/functions/project/";
 
-        // if (!isLoaded) {
-        if (isLoaded) {
+        if (!isLoaded) {
             return <div>Loading ... </div>
         } 
         else {
