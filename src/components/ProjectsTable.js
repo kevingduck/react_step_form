@@ -24,14 +24,15 @@ export class ProjectsTable extends Component {
     delete = e => {
         e.preventDefault();
         const value  = e.target.value;
+        debugger;
         if (window.confirm("Delete Project?" + value)) {
           fetch('./.netlify/functions/project/' + value, {
             method: 'DELETE',
-            body: JSON.stringify(value),
+            // body: value,
           });
           console.log('deleted' + value);
         };
-        window.location.reload(false);
+        // window.location.reload(false);
       };
     //TODO: Add edit function
 
