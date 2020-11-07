@@ -26,7 +26,7 @@ export class ProjectsTable extends Component {
         debugger;
         const value  = e.target.value;
         if (window.confirm("Delete Project?" + value)) {
-          fetch('./.netlify/functions/project/delete/', {
+          fetch('./.netlify/functions/project/', {
             method: 'DELETE',
             body: JSON.stringify(value),
           });
