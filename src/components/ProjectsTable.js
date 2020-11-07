@@ -25,12 +25,12 @@ export class ProjectsTable extends Component {
         e.preventDefault();
         const value  = e.target.value;
         debugger;
-        if (window.confirm("Delete Project?" + value)) {
+        if (window.confirm("Delete Project? " + value)) {
           fetch('./.netlify/functions/project/' + value, {
             method: 'DELETE',
             // body: value,
           });
-          console.log('deleted' + value);
+          console.log('Deleted project' + value);
         };
         // window.location.reload(false);
       };

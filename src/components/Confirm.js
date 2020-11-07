@@ -9,15 +9,15 @@ export class Confirm extends Component {
     e.preventDefault();
     const { values } = this.props;
 
-    if (window.confirm("Create New Project?" + JSON.stringify(values))) {
+    if (window.confirm("Create New Project? " + JSON.stringify(values))) {
       fetch('./.netlify/functions/project', {
         method: 'POST',
         body: JSON.stringify(values),
       });
-      console.log('created' + values);
+      alert('created' + JSON.stringify(values));
     };
-  
-    this.props.nextStep();
+    window.location.reload(false);
+    // this.props.nextStep();
   };
 
   back = e => {
