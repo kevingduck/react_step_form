@@ -23,10 +23,9 @@ export class ProjectsTable extends Component {
     
     delete = e => {
         e.preventDefault();
-        debugger;
         const value  = e.target.value;
         if (window.confirm("Delete Project?" + value)) {
-          fetch('./.netlify/functions/project/', {
+          fetch('./.netlify/functions/project/' + value, {
             method: 'DELETE',
             body: JSON.stringify(value),
           });
@@ -43,7 +42,7 @@ export class ProjectsTable extends Component {
         
         var url = "./.netlify/functions/project/";
 
-        if (isLoaded) {
+        if (!isLoaded) {
             return <div>Loading ... </div>
         } 
         else {
