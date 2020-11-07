@@ -32,7 +32,6 @@ export class ProjectsTable extends Component {
           });
           console.log('Deleted project' + value);
         };
-        window.location.reload(false);
       };
 
     //TODO: Add edit function
