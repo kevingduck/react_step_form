@@ -31,9 +31,9 @@ export class ProjectsTable extends Component {
           });
           console.log('deleted' + value);
         };
-      
+        window.location.reload(false);
       };
-    //TODO: Add delete and edit function
+    //TODO: Add edit function
 
     render() {
         var { isLoaded, items } = this.state;
