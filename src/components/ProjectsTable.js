@@ -28,7 +28,6 @@ export class ProjectsTable extends Component {
         if (window.confirm("Delete Project? " + value)) {
           fetch('./.netlify/functions/project/' + value, {
             method: 'DELETE',
-            // body: value,
           });
           console.log('Deleted project' + value);
         };
@@ -53,24 +52,16 @@ export class ProjectsTable extends Component {
                         <thead>
                             <tr>
                                 <th>Customer</th>
-                                <th>Project</th>
-                                <th>Created</th>
-                                <th>Due</th>
+                                <th>Dates</th>
                                 <th>Email</th>
-                                <th></th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody> 
                             { items.map(item => (
                                 <tr key={item.id}>
-                                    <td>{item.data.customer_name}</td>
-                                    <td>{item.data.project_code}</td>
-                                    <td>{item.data.creation_date}</td>
-                                    <td>{item.data.due_date}</td>
-                                    <td>{item.data.email}</td>
-                                    <td><a href={url + item.ref["@ref"].id}>Edit</a></td>
-                                    <td><button value={item.ref["@ref"].id} onClick={this.delete}>Delete</button></td>
+                                    <td>{item.data.customer_name} | <a href={url + item.ref["@ref"].id}>{item.data.project_code}</a></td>
+                                    <td>Created {item.data.creation_date} | Due {item.data.due_date}</td>
+=                                   <td>{item.data.email}</td>
                                 </tr>
                                 )
                             )}
