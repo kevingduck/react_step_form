@@ -59,9 +59,9 @@ export class ProjectsTable extends Component {
                         <tbody> 
                             { items.map(item => (
                                 <tr key={item.id}>
-                                    <td>{item.data.customer_name} | <a href={url + item.ref["@ref"].id}>{item.data.project_code}</a></td>
-                                    <td>Created {item.data.creation_date} | Due {item.data.due_date}</td>
-                                    <td>{item.data.email}</td>
+                                    <td><a href={url + item.ref["@ref"].id}>{item.data.customer_name} - {item.data.project_code}</a></td>
+                                    <td>Created {item.data.creation_date} <br/> Due {item.data.due_date}</td>
+                                    <td><a href={"mailto:" + item.data.email}></a> {item.data.email}</td>
                                 </tr>
                                 )
                             )}
