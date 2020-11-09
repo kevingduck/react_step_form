@@ -61,7 +61,7 @@ export class ProjectsTable extends Component {
                                 <tr key={item.id}>
                                     <td><a href={url + item.ref["@ref"].id}>{item.data.customer_name} - {item.data.project_code}</a></td>
                                     <td>Created {item.data.creation_date} <br/> Due {item.data.due_date}</td>
-                                    <td><a href={"mailto:" + item.data.email}></a> {item.data.email}</td>
+                                    <td><a href={"mailto:" + item.data.email}>{item.data.email}</a></td>
                                 </tr>
                                 )
                             )}
