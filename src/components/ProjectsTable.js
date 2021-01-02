@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Table from 'react-bootstrap/Table';
+import UserForm from './UserForm';
+import FormUserDetails from './FormUserDetails';
 
 export class ProjectsTable extends Component {
     constructor(props) {
@@ -10,11 +12,12 @@ export class ProjectsTable extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.edit = this.edit.bind(this);
     }
 
     handleChange = e => {
         e.preventDefault();
-        const value = e.target.value;
+        // const value = e.target.value;
         this.setState({
         });
     }
@@ -45,10 +48,12 @@ export class ProjectsTable extends Component {
     };
 
     edit = e => {
+        // show form modal
+        
+        // populate with data from selected project
         e.preventDefault();
         const value = e.target.value;
         console.log(value);
-        debugger;
     }
 
     //TODO: Add edit function
@@ -78,7 +83,7 @@ export class ProjectsTable extends Component {
                             <tbody>
                                 {items.map(item => (
                                     <tr key={item.ref["@ref"].id}>
-                                        <td><a href={url + item.ref["@ref"].id}>{item.data.customer_name} - {item.data.project_code}</a><button onClick={() => this.edit}>Edit</button></td>
+                                        <td><a href={url + item.ref["@ref"].id}>{item.data.customer_name} - {item.data.project_code}</a><button onClick={this.edit}>Edit</button></td>
                                         <td>Created {item.data.creation_date} <br /> Due {item.data.due_date}</td>
                                         <td><a href={"mailto:" + item.data.email}>{item.data.email}</a></td>
                                     </tr>
