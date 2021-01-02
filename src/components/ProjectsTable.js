@@ -7,12 +7,22 @@ export class ProjectsTable extends Component {
         this.state = {
             items: [],
             isLoaded: false,
-            itemToUpdate: [],
         }
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange = e => {
+        e.preventDefault();
+        const value = e.target.value;
+        this.setState({
+        });
     }
 
     componentDidMount() {
-        fetch('https://converged.netlify.app/.netlify/functions/project')
+        fetch('./.netlify/functions/project', {
+            // headers: { 'Access-Control-Allow-Origin':'*', },
+        })
             .then(res => res.json())
             .then(json => {
                 this.setState({
@@ -27,34 +37,19 @@ export class ProjectsTable extends Component {
         const value = e.target.value;
         if (window.confirm("Delete Project? " + value)) {
             fetch('./.netlify/functions/project/' + value, {
+                headers: { accept: "Accept: application/json" },
                 method: 'DELETE',
             });
             console.log('Deleted project' + value);
         };
     };
 
-    // edit = e => {
-    //     // e.preventDefault();
-    //     // const value = e.target.value;
-    //     // console.log(value);
-    //     debugger;
-    // }
-
     edit = e => {
         e.preventDefault();
         const value = e.target.value;
         console.log(value);
-        fetch('./.netlify/functions/project/' + value, {
-            method: 'GET',
-        })
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    itemToUpdate: json,
-                })
-            });
         debugger;
-    };
+    }
 
     //TODO: Add edit function
 
@@ -91,9 +86,6 @@ export class ProjectsTable extends Component {
                                 )}
                             </tbody>
                         </Table>
-                    </div>
-                    <div>
-                        <h1>Details</h1>
                     </div>
                 </div>
             )
